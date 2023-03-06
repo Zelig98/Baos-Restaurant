@@ -1,0 +1,17 @@
+.bg-navbar {
+    background-color: #aa4a32 !important;
+}
+
+.logo-navbar{
+    font-size: 128px;
+}
+
+.go-to-front {
+    z-index: 1;
+}
+
+.menu-icon{
+    z-index: 1;
+    right: 0;
+    top: 60%;
+}

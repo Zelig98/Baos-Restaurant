@@ -1,0 +1,29 @@
+.divider-thin{
+    padding: 1px 0px;
+}
+
+.price{
+    color: #aa4a32;
+}
+
+.home-page img {
+    height: 250px;
+}
+
+.customer-review {
+    border: 5px solid black;
+}
+
+.fw-900 {
+    font-weight: 900 !important;
+}
+
+@media (max-width: 1199px) {
+    .text-review {
+        font-size: 40px;
+    }
+
+    .fuiyoh{
+        font-size: 50px;
+    }
+}
