@@ -7,7 +7,7 @@ import './css/Navbar.css'
 
 const Navbar = () => {
     return (
-        <div className='header mb-5'>
+        <div className='header'>
             <div className='pre-navbar position-relative'>
                 <h1 className='logo-navbar font-milonga text-center'>BAO</h1>
                 <div className='my-2'>
