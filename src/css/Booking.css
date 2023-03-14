@@ -20,7 +20,7 @@ iframe{
 
 .text{
     text-align-last: center;
-    font-weight: 400;
+    font-weight: 400 !important;
     padding-top: 10px;
 }
 
@@ -88,7 +88,10 @@ input{
 
 .btn{
     margin-bottom: 15px;
-    margin-left: 40px;
-    width: 90%;
-    margin-right: 27px;
+    width: 50%;
+}
+
+.positionButton{
+    width: 100%;
+    text-align-last: center;
 }

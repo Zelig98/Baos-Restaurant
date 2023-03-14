@@ -23,7 +23,7 @@ const Booking = () => {
                     
                     <Col lg="6" className="ps-5 pe-5">
                         <form action="#" className='container m-0'>
-                            <h3 className="text fw-light"><i className="fa-solid fa-phone"></i>Book your table here</h3>
+                            <h3 className="text"><i className="fa-solid fa-phone"></i> Book your table here</h3>
                             <hr />
                             <hr />
                             <label className='d-flex justify-content-between'>
@@ -50,7 +50,9 @@ const Booking = () => {
                                 Time:
                                 <input type="text" placeholder='Enter here...'/>
                             </label>
-                            <button className='btn btn-primary'>Submit</button>
+                            <div className='positionButton'>
+                                <button className='btn btn-primary'>Submit</button>
+                            </div>
                         </form>
                         
                     </Col>
