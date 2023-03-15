@@ -1,0 +1,27 @@
+button.menu-categories-btn:active {
+    border-color: transparent !important;
+}
+
+div.vr {
+    height: 40vh;
+    width: 3px;
+    margin-left: -3vh;
+}
+
+.divider-thin{
+    padding: 1px 0px;
+}
+
+.price{
+    color: #aa4a32;
+}
+
+.Menu img {
+    height: 250px;
+}
+
+@media (min-width: 768px) {
+    .vertical-divider{
+        width: 0% !important;
+    }
+}
