@@ -2,23 +2,27 @@ import { useEffect, useState } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import "./css/Menu.css"
 import FoodList from "./FoodList";
+import { writeFoodData, getFoodsData } from "./include/Firebase";
 
 const Menu = () => {
     const [foods, setFoods] = useState(null);
     const [isPending, setPending] = useState(true);
+    
+    function callBack(){
+        setPending(false);
+    }
+
+    function getFoodsList(foods, callback){
+        setFoods(foods);
+        callback();
+    }
+
 
     useEffect(() => {
         console.log("use effect ran");
-
-        fetch('http://localhost:8000/foods')
-        .then(res => {
-            return res.json();
-        })
-        .then(data => {
-            setPending(false);
-            setFoods(data);
-        });
+        getFoodsList(getFoodsData, callBack);
     }, []);
+
 
     return ( 
         <div className="Menu">
