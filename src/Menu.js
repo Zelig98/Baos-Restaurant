@@ -20,7 +20,11 @@ const Menu = () => {
 
     useEffect(() => {
         console.log("use effect ran");
-        getFoodsList(getFoodsData, callBack);
+
+        getFoodsData().then((result =>{
+            getFoodsList(result, callBack);
+        }));
+
     }, []);
 
 

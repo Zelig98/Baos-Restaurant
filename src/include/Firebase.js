@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, set, onValue } from "firebase/database";
+import { getDatabase, ref, set, onValue, get } from "firebase/database";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -35,13 +35,12 @@ function writeFoodData(foodID, foodName, foodType, foodImage, foodPrice) {
     console.log("added");
 }
 
-function getFoodsData () {
+async function getFoodsData () {
     let data;
     const reference = ref(database, 'foods/');
 
-    onValue(reference, (snapshot) => {
-        data = snapshot.val();
-    })
+    const snapshot = await get(reference);
+    data = snapshot.val();
 
     return data;
 }
