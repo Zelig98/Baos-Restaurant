@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, set, onValue, get } from "firebase/database";
+import { getFirestore, doc, collection, getDocs, query, startAt, limit, orderBy, where } from "firebase/firestore";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -20,30 +20,38 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const database = getDatabase();
-function writeFoodData(foodID, foodName, foodType, foodImage, foodPrice) {
-    const reference = ref(database, 'foods/' + foodID)
+const database = getFirestore(app);
+// function writeFoodData(foodID, foodName, foodType, foodImage, foodPrice) {
+//     const reference = ref(database, 'foods/' + foodID)
 
-    set(reference, {
-        id: foodID,
-        name: foodName,
-        type: foodType,
-        image: foodImage,
-        price: foodPrice
+//     set(reference, {
+//         id: foodID,
+//         name: foodName,
+//         type: foodType,
+//         image: foodImage,
+//         price: foodPrice
+//     });
+
+//     console.log("added");
+// }
+
+async function getFoodsData (foodType="main courses", limitFoods=8, start=1) {
+    let data = [];
+    let q;
+    const reference = collection(database, "foods");
+
+    if(foodType == "all"){
+        q = query(reference, orderBy("id", "asc"), startAt(start), limit(limitFoods));
+    } else {
+        q = query(reference, where("type", "==", "main courses"), orderBy("id", "asc"), startAt(start), limit(limitFoods));
+    }
+    const snapshot = await getDocs(q);
+    snapshot.docs.forEach((doc) => {
+        data.push({ ...doc.data(), id: doc.id });
     });
-
-    console.log("added");
-}
-
-async function getFoodsData () {
-    let data;
-    const reference = ref(database, 'foods/');
-
-    const snapshot = await get(reference);
-    data = snapshot.val();
 
     return data;
 }
 
-export { writeFoodData };
+// export { writeFoodData };
 export { getFoodsData };
