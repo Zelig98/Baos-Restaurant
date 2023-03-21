@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import "./css/Menu.css"
 import FoodList from "./include/FoodList";
-import { getFoodsData, getNumberFoods } from "./include/Firebase";
+import { getFoodsData, getNumberFoods } from "./include/MenuFetch";
 import Paginate from "./include/Paginate";
 
 //define 
