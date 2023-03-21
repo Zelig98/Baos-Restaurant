@@ -5,7 +5,7 @@ const FoodList = ({foods}) => {
         <Row className="foods-list mt-4">
             {foods.map((food) => (
                 <Col xl="3" lg="6" md="12" className="mb-3" key={food.id}>
-                    <img src={food.image} alt="GoiCuon.jpg" className='w-100 mb-3 border border-dark'/>
+                    <img src={food.image} alt={food.image} className='w-100 mb-3 border border-dark'/>
                     <div className='divider-thin bg-dark'></div>
                     <h5 className='my-2 text-center fw-bold'>{food.name}</h5>
                     <div className='divider-thin bg-dark'></div>
@@ -18,5 +18,5 @@ const FoodList = ({foods}) => {
         </Row>
     );
 }
- 
+
 export default FoodList;

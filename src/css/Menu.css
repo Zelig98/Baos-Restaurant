@@ -20,6 +20,10 @@ div.vr {
     height: 250px;
 }
 
+.category-active {
+    color: red;
+}
+
 @media (min-width: 768px) {
     .vertical-divider{
         width: 0% !important;

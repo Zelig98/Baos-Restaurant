@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getFirestore, doc, collection, getDocs, query, startAt, limit, orderBy, where } from "firebase/firestore";
+import { getFirestore, collection, getDocs, getCountFromServer, query, startAt, limit, orderBy, where } from "firebase/firestore";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -21,21 +21,33 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const database = getFirestore(app);
-// function writeFoodData(foodID, foodName, foodType, foodImage, foodPrice) {
-//     const reference = ref(database, 'foods/' + foodID)
 
-//     set(reference, {
-//         id: foodID,
-//         name: foodName,
-//         type: foodType,
-//         image: foodImage,
-//         price: foodPrice
-//     });
+async function getNumberFoods(categories) {
+    const reference = collection(database, "foods");
+    let q;
 
-//     console.log("added");
-// }
+    switch (categories) {
+        case "all":
+            q = reference;
+            break;
+        case "main courses":
+            q = query(reference, where("type", "==", "main courses"));
+            break;
+        case "dessert":
+            q = query(reference, where("type", "==", "dessert"));
+            break;
+        case "beverage":
+            q = query(reference, where("type", "==", "beverage"));
+            break;
+    }
 
-async function getFoodsData (foodType="main courses", limitFoods=8, start=1) {
+    const result = await getCountFromServer(q);
+
+    return result.data().count;
+}
+
+async function getFoodsData (foodType="all", start=1) {
+    const limitFoods = 8;
     let data = [];
     let q;
     const reference = collection(database, "foods");
@@ -43,7 +55,7 @@ async function getFoodsData (foodType="main courses", limitFoods=8, start=1) {
     if(foodType == "all"){
         q = query(reference, orderBy("id", "asc"), startAt(start), limit(limitFoods));
     } else {
-        q = query(reference, where("type", "==", "main courses"), orderBy("id", "asc"), startAt(start), limit(limitFoods));
+        q = query(reference, where("type", "==", foodType), orderBy("id", "asc"), startAt(start), limit(limitFoods));
     }
     const snapshot = await getDocs(q);
     snapshot.docs.forEach((doc) => {
@@ -53,5 +65,5 @@ async function getFoodsData (foodType="main courses", limitFoods=8, start=1) {
     return data;
 }
 
-// export { writeFoodData };
 export { getFoodsData };
+export { getNumberFoods };
