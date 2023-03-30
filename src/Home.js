@@ -5,7 +5,7 @@ import './css/Home.css'
 
 const Home = () => {
     return ( 
-        <div className="home-page mt-5">
+        <div className="home-page">
             <Row>
                 <Col xl="9" className='pe-5'>
                     <h1 className='font-milonga text-center'>Signature Dish</h1>
