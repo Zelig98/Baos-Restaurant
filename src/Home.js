@@ -5,7 +5,7 @@ import './css/Home.css'
 
 const Home = () => {
     return ( 
-        <div className="home-page">
+        <div className="home-page mt-5">
             <Row>
                 <Col xl="9" className='pe-5'>
                     <h1 className='font-milonga text-center'>Signature Dish</h1>
@@ -20,21 +20,21 @@ const Home = () => {
                             <h2 className='text-center price mt-1 fw-bold'>3.0$</h2>
                         </Col>
                         <Col xl="3" lg="6" md="12">
-                            <img src="/images/Foods/MainCoursed/BanhMi.jpg" alt="GoiCuon.jpg" className='w-100 mb-3 border border-dark'/>
+                            <img src="/images/Foods/MainCoursed/BanhMi.jpg" alt="BanhMi.jpg" className='w-100 mb-3 border border-dark'/>
                             <div className='divider-thin bg-dark'></div>
                             <h3 className='my-2 text-center fw-bold'>Banh Mi</h3>
                             <div className='divider-thin bg-dark'></div>
                             <h2 className='text-center price mt-1 fw-bold'>3.0$</h2>
                         </Col>
                         <Col xl="3" lg="6" md="12">
-                            <img src="/images/Foods/MainCoursed/SupCua.jpg" alt="GoiCuon.jpg" className='w-100 mb-3 border border-dark'/>
+                            <img src="/images/Foods/MainCoursed/SupCua.jpg" alt="CrabSoup.jpg" className='w-100 mb-3 border border-dark'/>
                             <div className='divider-thin bg-dark'></div>
                             <h3 className='my-2 text-center fw-bold'>Crab Soup</h3>
                             <div className='divider-thin bg-dark'></div>
                             <h2 className='text-center price mt-1 fw-bold'>5.0$</h2>
                         </Col>
                         <Col xl="3" lg="6" md="12">
-                            <img src="/images/Foods/MainCoursed/GoiCuon.jpg" alt="GoiCuon.jpg" className='w-100 mb-3 border border-dark'/>
+                            <img src="/images/Foods/MainCoursed/Pho.jpg" alt="Pho.jpg" className='w-100 mb-3 border border-dark'/>
                             <div className='divider-thin bg-dark'></div>
                             <h3 className='my-2 text-center fw-bold'>Pho</h3>
                             <div className='divider-thin bg-dark'></div>

@@ -1,0 +1,97 @@
+.bg-location {
+    background-color: #aa4a32 !important;
+}
+
+iframe{
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.location{
+    font-size: 1.2rem;
+    font-weight: 200;
+    margin-bottom: 0;
+    padding-left: 5px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+}
+
+.text{
+    text-align-last: center;
+    font-weight: 400 !important;
+    padding-top: 10px;
+}
+
+form{
+    background-color: rgba(206, 194, 176, 1);
+}
+
+hr{
+    margin: 6px !important;
+    border-top: 3px solid !important;
+    border-color: black !important;
+    opacity: 1 !important
+}
+
+label{
+   margin-top: 30px;
+   margin-bottom: 30px;
+   margin-left: 40px;
+   font-weight: 600;
+   font-size: 20px;
+}
+
+input{
+    margin-right: 30px !important;
+    padding-right: 25px;
+    background-color: rgba(231, 227, 210, 1);
+    padding-left: 5px;
+    width: 50%;
+}
+
+.specialInput{
+    background-color: rgba(231, 227, 210, 1);
+    padding-left: 5px;
+    height: 35px;
+    width: 35px;
+    margin-right: 0px !important;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+.specialDiv{
+    margin-right: 27px;
+    padding-right: 0px;
+    padding-left: 0px;
+    width: 50% !important;
+}
+
+.daucong{
+    margin-right: 5px;
+    margin-left: 5px;
+    width: 35px;
+    height: 35px;
+    background-color: #0d6efd;
+    color: white;
+}
+
+.dautru{
+    margin-right: 5px;
+    margin-left: 5px;
+    width: 35px;
+    height: 35px;
+    background-color: #0d6efd;
+    color: white;
+}
+
+.btn{
+    margin-bottom: 15px;
+    width: 50%;
+}
+
+.positionButton{
+    width: 100%;
+    text-align-last: center;
+}
