@@ -9,6 +9,7 @@ import Contact from './Contact';
 import Footer from './Footer';
 import NotFound from './NotFound';
 import { BrowserRouter as Router, Route, Routes /* switch replaced by routes in ver 6 */ } from 'react-router-dom';
+import SignIn from './SignIn';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
               <Route exact path='/our_story' element={ <OurStory/> } />
               <Route exact path='/contact' element={ <Contact/> } />
               <Route path="*" element={<NotFound/>}/>
+              <Route exact path='/signin' element={<SignIn/>} />
             </Routes>
           <Footer></Footer>
         </Container>
