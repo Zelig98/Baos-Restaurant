@@ -26,29 +26,29 @@ const Booking = () => {
                             <h3 className="textContact"><i className="fa-solid fa-phone"></i> Book your table here</h3>
                             <hr className='line' />
                             <hr className='line'/>
-                            <label className='form-label d-flex justify-content-between'>
+                            <label className='booking-form-label d-flex justify-content-between'>
                                 Name:
-                                <input className='form-input' type="text" placeholder='Enter here...'/>
+                                <input className='booking-form-input' type="text" placeholder='Enter here...'/>
                             </label>
-                            <label className='form-label d-flex justify-content-between'>
+                            <label className='booking-form-label d-flex justify-content-between'>
                                 Phone:
-                                <input className='form-input' type="text" placeholder='Enter here...'/>
+                                <input className='booking-form-input' type="text" placeholder='Enter here...'/>
                             </label>
-                            <label className='form-label d-flex justify-content-between'>
+                            <label className='booking-form-label d-flex justify-content-between'>
                                 People:
                                 <div className='specialDiv'>
-                                    <button className='daucong'>+</button>
-                                    <input className='specialInput' type="text"/>
                                     <button className='dautru'>-</button>
+                                    <input className='specialInput' type="text"/>
+                                    <button className='daucong'>+</button>
                                 </div>
                             </label>
-                            <label className='form-label d-flex justify-content-between'>
+                            <label className='booking-form-label d-flex justify-content-between'>
                                 Date:
-                                <input className='form-input' type="text" placeholder='Enter here...'/>
+                                <input className='booking-form-input' type="text" placeholder='Enter here...'/>
                             </label>
-                            <label className='form-label d-flex justify-content-between'>
+                            <label className='booking-form-label d-flex justify-content-between'>
                                 Time:
-                                <input className='form-input' type="text" placeholder='Enter here...'/>
+                                <input className='booking-form-input' type="text" placeholder='Enter here...'/>
                             </label>
                             <div className='positionButton'>
                                 <button className='btn position-button btn-primary'>Submit</button>
