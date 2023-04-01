@@ -2,6 +2,7 @@
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import "firebase/compat/firestore";
+import * as firebaseui from 'firebaseui';
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -23,5 +24,6 @@ const firebaseConfig = {
 const app = firebase.initializeApp(firebaseConfig);
 const database = app.firestore();
 const auth = firebase.auth();
+var ui = new firebaseui.auth.AuthUI(auth);
 
-export { auth, database };
+export { database, firebase, ui };

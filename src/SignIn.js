@@ -1,12 +1,7 @@
-import { getAuth } from 'firebase/auth';
-import firebase from 'firebase/compat/app';
-import * as firebaseui from 'firebaseui';
 import 'firebaseui/dist/firebaseui.css';
+import { firebase, ui } from "./include/Firebase";
 
 const SignIn = () => {
-    const auth = getAuth();
-    var ui = new firebaseui.auth.AuthUI(auth);
-    ui.start('#firebaseui-auth-container', uiConfig);
     var uiConfig = {
         callbacks: {
             signInSuccessWithAuthResult: function(authResult, redirectUrl){
@@ -23,6 +18,8 @@ const SignIn = () => {
             firebase.auth.EmailAuthProvider.PROVIDER_ID,
         ]
     }
+
+    ui.start('#firebaseui-auth-container', uiConfig);
 
     return ( 
         <div>
