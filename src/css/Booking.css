@@ -2,7 +2,7 @@
     background-color: #aa4a32 !important;
 }
 
-iframe{
+.map-location{
     display: block;
     width: 100%;
     padding: 0;
@@ -18,24 +18,24 @@ iframe{
     padding-bottom: 9px;
 }
 
-.text{
+.textContact{
     text-align-last: center;
     font-weight: 400 !important;
     padding-top: 10px;
 }
 
-form{
+.booking-container{
     background-color: rgba(206, 194, 176, 1);
 }
 
-hr{
+.line{
     margin: 6px !important;
     border-top: 3px solid !important;
     border-color: black !important;
     opacity: 1 !important
 }
 
-label{
+.form-label{
    margin-top: 30px;
    margin-bottom: 30px;
    margin-left: 40px;
@@ -43,7 +43,7 @@ label{
    font-size: 20px;
 }
 
-input{
+.form-input{
     margin-right: 30px !important;
     padding-right: 25px;
     background-color: rgba(231, 227, 210, 1);
@@ -86,7 +86,7 @@ input{
     color: white;
 }
 
-.btn{
+.position-button{
     margin-bottom: 15px;
     width: 50%;
 }
