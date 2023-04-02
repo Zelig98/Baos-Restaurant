@@ -2,8 +2,44 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import './css/Booking.css'
+import React, { useState } from "react";
 
 const Booking = () => {
+    const [count, setCount] = useState(null);
+    const [error, setError] = useState(null);
+
+    function handlePlus(e) {
+        if(count === null || count === ""){
+          setCount(1);
+        } else {
+          setCount(count + 1);
+          setError(null);
+        }
+        e.preventDefault();
+      }
+    
+      function handleMinus(e) {
+        if (count > 0) {
+          setCount(count - 1);
+          setError(null);
+        } else {
+          setError("Please Enter a Valid Number");
+        }
+        e.preventDefault();
+      }
+
+      function handleValueChange(e) {
+        const re = /^[0-9\b]+$/;
+        if (e.target.value === "" || re.test(e.target.value)) {
+          const x = Number(e.target.value);
+          setCount(x);
+          setError("updated");
+        } else {
+          setError("Your input is not valid");
+        }
+        e.preventDefault();
+      }
+
     return ( 
         <div className="booking my-3">
             <div className="container m-0">
@@ -37,9 +73,9 @@ const Booking = () => {
                             <label className='booking-form-label d-flex justify-content-between'>
                                 People:
                                 <div className='specialDiv'>
-                                    <button className='dautru'>-</button>
-                                    <input className='specialInput' type="text"/>
-                                    <button className='daucong'>+</button>
+                                    <button className='dautru' onClick={handleMinus}>-</button>
+                                    <input className='specialInput' type="text" value={count} min="0" onClick={() => setCount(0)} onChange={handleValueChange}/>
+                                    <button className='daucong' onClick={handlePlus}>+</button>
                                 </div>
                             </label>
                             <label className='booking-form-label d-flex justify-content-between'>
