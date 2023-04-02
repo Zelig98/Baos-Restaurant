@@ -11,6 +11,7 @@ import NotFound from './NotFound';
 import { BrowserRouter as Router, Route, Routes /* switch replaced by routes in ver 6 */ } from 'react-router-dom';
 import SignUp from './SignUp';
 import LogIn from './LogIn';
+import ForgotPassword from './ForgetPassword';
 import { ChakraProvider } from '@chakra-ui/react';
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
                   <Route path="*" element={<NotFound/>}/>
                   <Route exact path='/signin' element={<SignUp/>} />
                   <Route exact path='/login' element={<LogIn/>}/>
+                  <Route exact path='/forgotpassword' element={<ForgotPassword/>}/>
                 </Routes>
               <Footer></Footer>
           </Container>

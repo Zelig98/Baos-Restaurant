@@ -144,7 +144,7 @@ import {
           </chakra.form>
           <HStack justifyContent='space-between' my={4}>
             <Button variant='link'>
-              <Link to='/forgot-password'>Forgot password?</Link>
+              <Link to='/forgotpassword'>Forgot password?</Link>
             </Button>
             <Button variant='link' onClick={() => history('/signin')}>
               Register
