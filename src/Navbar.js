@@ -25,7 +25,7 @@ const Navbar = () => {
                 </div>
                 <div className='menu-icon position-absolute'>
                     <div className='d-flex'>
-                        <i className="fa-solid fa-circle-user fs-1 mx-4"></i>
+                        <Link to={'/signin'}><i className="fa-solid fa-circle-user fs-1 mx-4"></i></Link>
                         <i className="fa-solid fa-cart-shopping ms-2 fs-1 me-md-5"></i>
                     </div>
                 </div>

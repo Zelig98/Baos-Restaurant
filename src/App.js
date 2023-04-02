@@ -10,24 +10,29 @@ import Footer from './Footer';
 import NotFound from './NotFound';
 import { BrowserRouter as Router, Route, Routes /* switch replaced by routes in ver 6 */ } from 'react-router-dom';
 import SignIn from './SignIn';
+import LogIn from './LogIn';
+import { ChakraProvider } from '@chakra-ui/react';
 
 function App() {
   return (
+    <ChakraProvider>
       <Router>
         <Container>
-          <Navbar/>
-            <Routes>
-              <Route exact path='/' element={ <Home/> } />
-              <Route exact path='/booking' element={ <Booking/> } />
-              <Route exact path='/menu' element={ <Menu/> } />
-              <Route exact path='/our_story' element={ <OurStory/> } />
-              <Route exact path='/contact' element={ <Contact/> } />
-              <Route path="*" element={<NotFound/>}/>
-              <Route exact path='/signin' element={<SignIn/>} />
-            </Routes>
-          <Footer></Footer>
-        </Container>
+              <Navbar/>
+                <Routes>
+                  <Route exact path='/' element={ <Home/> } />
+                  <Route exact path='/booking' element={ <Booking/> } />
+                  <Route exact path='/menu' element={ <Menu/> } />
+                  <Route exact path='/our_story' element={ <OurStory/> } />
+                  <Route exact path='/contact' element={ <Contact/> } />
+                  <Route path="*" element={<NotFound/>}/>
+                  <Route exact path='/signin' element={<SignIn/>} />
+                  <Route exact path='/login' element={<LogIn/>}/>
+                </Routes>
+              <Footer></Footer>
+          </Container>
       </Router>
+    </ChakraProvider>
   );
 }
 

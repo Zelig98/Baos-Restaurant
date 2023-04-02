@@ -1,38 +1,52 @@
 import {
     Button,
-    Center,
     chakra,
     FormControl,
     FormLabel,
     Heading,
+    HStack,
     Input,
     Stack,
     useToast,
   } from '@chakra-ui/react'
-  import React, { useEffect, useRef, useState } from 'react'
-  import { useNavigate } from 'react-router-dom'
+  import React, { useState } from 'react'
+  import { Link, useNavigate, useLocation } from 'react-router-dom'
   import { Card } from '../src/components/Card'
   import { Layout } from '../src/components/Layout'
+  import useMounted from '../src/include/useMounted'
   
-  export default function SignInpage() {
+  export default function LogInpage() {
     const history = useNavigate()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [isSubmitting, setIsSubmitting] = useState(false)
     const toast = useToast()
-    const mounted = useRef(false)
+    // const mounted = useRef(false)
+    const location = useLocation()
   
-    useEffect(() => {
-      mounted.current = true
-      return () => {
-        mounted.current = false
-      }
-    }, [])
+    // useEffect(() => {
+    //   mounted.current = true
+    //   return () => {
+    //     mounted.current = false
+    //   }
+    // }, [])
+  
+    const mounted = useMounted()
+  
+    function handleRedirectToOrBack() {
+      // console.log(location?.state)
+      history.replace(location.state?.from ?? '/profile')
+      // if (location.state) {
+      //   history.replace(location.state?.from)
+      // } else {
+      //   history.replace('/profile')
+      // }
+    }
   
     return (
       <Layout>
         <Heading textAlign='center' my={12}>
-          Register
+          Login
         </Heading>
         <Card maxW='md' mx='auto' mt={4}>
           <chakra.form
@@ -47,10 +61,12 @@ import {
                 })
                 return
               }
-              // your register logic here
+              // your login logic here
               setIsSubmitting(true)
-              register(email, password)
-                .then(res => {})
+              login(email, password)
+                .then(res => {
+                  handleRedirectToOrBack()
+                })
                 .catch(error => {
                   console.log(error.message)
                   toast({
@@ -61,6 +77,10 @@ import {
                   })
                 })
                 .finally(() => {
+                  // setTimeout(() => {
+                  //   mounted.current && setIsSubmitting(false)
+                  //   console.log(mounted.current)
+                  // }, 1000)
                   mounted.current && setIsSubmitting(false)
                 })
             }}
@@ -83,11 +103,12 @@ import {
                   name='password'
                   type='password'
                   autoComplete='password'
-                  required
                   value={password}
+                  required
                   onChange={e => setPassword(e.target.value)}
                 />
               </FormControl>
+              {/* <PasswordField /> */}
               <Button
                 type='submit'
                 colorScheme='pink'
@@ -95,15 +116,18 @@ import {
                 fontSize='md'
                 isLoading={isSubmitting}
               >
-                Sign up
+                Sign in
               </Button>
             </Stack>
           </chakra.form>
-          <Center my={4}>
-            <Button variant='link' onClick={() => history.push('/login')}>
-              Login
+          <HStack justifyContent='space-between' my={4}>
+            <Button variant='link'>
+              <Link to='/forgot-password'>Forgot password?</Link>
             </Button>
-          </Center>
+            <Button variant='link' onClick={() => history.push('/register')}>
+              Register
+            </Button>
+          </HStack>
         </Card>
       </Layout>
     )
