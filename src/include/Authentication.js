@@ -2,8 +2,7 @@ import React, { createContext, useContext, useEffect, useState } from 'react'
 import { auth } from '../include/Firebase'
 import {
   onAuthStateChanged,
-  signOut,
-  confirmPasswordReset,
+  signOut
 } from 'firebase/auth'
 
 const AuthContext = createContext({
@@ -30,11 +29,6 @@ export default function AuthContextProvider({ children }) {
     console.log('The user is', currentUser)
   }, [currentUser])
 
-
-  function resetPassword(oobCode, newPassword) {
-    return confirmPasswordReset(auth, oobCode, newPassword)
-  }
-
   function logout() {
     return signOut(auth)
   }
@@ -42,7 +36,6 @@ export default function AuthContextProvider({ children }) {
   const value = {
     currentUser,
     logout,
-    resetPassword,
   }
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
 }

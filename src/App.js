@@ -12,6 +12,7 @@ import { BrowserRouter as Router, Route, Routes /* switch replaced by routes in 
 import SignUp from './SignUp';
 import LogIn from './LogIn';
 import ForgotPassword from './ForgetPassword';
+import ResetPassword from './ResetPassword';
 import { ChakraProvider } from '@chakra-ui/react';
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
                   <Route exact path='/signin' element={<SignUp/>} />
                   <Route exact path='/login' element={<LogIn/>}/>
                   <Route exact path='/forgotpassword' element={<ForgotPassword/>}/>
+                  <Route exact path='/resetpassword' element={<ResetPassword/>}/>
                 </Routes>
               <Footer></Footer>
           </Container>
