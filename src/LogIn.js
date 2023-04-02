@@ -10,10 +10,14 @@ import {
     useToast,
   } from '@chakra-ui/react'
   import React, { useState } from 'react'
-  import { Link, useNavigate, useLocation } from 'react-router-dom'
+  import { Link, useNavigate } from 'react-router-dom'
   import { Card } from '../src/components/Card'
   import { Layout } from '../src/components/Layout'
   import useMounted from '../src/include/useMounted'
+  import { auth } from '../src/include/Firebase'
+  import {
+    signInWithEmailAndPassword,
+  } from 'firebase/auth'
   
   export default function LogInpage() {
     const history = useNavigate()
@@ -22,7 +26,7 @@ import {
     const [isSubmitting, setIsSubmitting] = useState(false)
     const toast = useToast()
     // const mounted = useRef(false)
-    const location = useLocation()
+    // const location = useLocation()
   
     // useEffect(() => {
     //   mounted.current = true
@@ -35,12 +39,18 @@ import {
   
     function handleRedirectToOrBack() {
       // console.log(location?.state)
-      history.replace(location.state?.from ?? '/profile')
+      history("/", {replace: true})
       // if (location.state) {
       //   history.replace(location.state?.from)
       // } else {
       //   history.replace('/profile')
       // }
+    }
+
+    function login(email, password) {
+      return new Promise((resolve) => {
+        resolve(signInWithEmailAndPassword(auth, email, password));
+      })
     }
   
     return (
@@ -124,7 +134,7 @@ import {
             <Button variant='link'>
               <Link to='/forgot-password'>Forgot password?</Link>
             </Button>
-            <Button variant='link' onClick={() => history.push('/register')}>
+            <Button variant='link' onClick={() => history('/signin')}>
               Register
             </Button>
           </HStack>

@@ -11,8 +11,13 @@ import {
   } from '@chakra-ui/react'
   import React, { useEffect, useRef, useState } from 'react'
   import { useNavigate } from 'react-router-dom'
-  import { Card } from '../src/components/Card'
-  import { Layout } from '../src/components/Layout'
+  import { Card } from './components/Card'
+  import { Layout } from './components/Layout'
+  // import { useAuth } from './include/Authentication'
+  import {
+    createUserWithEmailAndPassword,
+  } from 'firebase/auth'
+  import { auth } from './include/Firebase'
   
   export default function SignInpage() {
     const history = useNavigate()
@@ -21,6 +26,7 @@ import {
     const [isSubmitting, setIsSubmitting] = useState(false)
     const toast = useToast()
     const mounted = useRef(false)
+    // const {register} = useAuth();
   
     useEffect(() => {
       mounted.current = true
@@ -28,6 +34,12 @@ import {
         mounted.current = false
       }
     }, [])
+
+    function register(email, password) {
+      return new Promise((resolve) => {
+        resolve(createUserWithEmailAndPassword(auth, email, password));
+      })
+    }
   
     return (
       <Layout>
@@ -50,19 +62,16 @@ import {
               // your register logic here
               setIsSubmitting(true)
               register(email, password)
-                .then(res => {})
-                .catch(error => {
-                  console.log(error.message)
-                  toast({
-                    description: error.message,
-                    status: 'error',
-                    duration: 9000,
-                    isClosable: true,
-                  })
+              .then(response => console.log(response))
+              .catch(error => {
+                toast({
+                  description: error.message,
+                  status: 'error',
+                  duration: 9000,
+                  isClosable: true,
                 })
-                .finally(() => {
-                  mounted.current && setIsSubmitting(false)
-                })
+              })
+              .finally(() => setIsSubmitting(false))
             }}
           >
             <Stack spacing='6'>
@@ -100,7 +109,7 @@ import {
             </Stack>
           </chakra.form>
           <Center my={4}>
-            <Button variant='link' onClick={() => history.push('/login')}>
+            <Button variant='link' onClick={() => history('/login')}>
               Login
             </Button>
           </Center>

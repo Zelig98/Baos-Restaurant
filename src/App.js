@@ -9,7 +9,7 @@ import Contact from './Contact';
 import Footer from './Footer';
 import NotFound from './NotFound';
 import { BrowserRouter as Router, Route, Routes /* switch replaced by routes in ver 6 */ } from 'react-router-dom';
-import SignIn from './SignIn';
+import SignUp from './SignUp';
 import LogIn from './LogIn';
 import { ChakraProvider } from '@chakra-ui/react';
 
@@ -26,7 +26,7 @@ function App() {
                   <Route exact path='/our_story' element={ <OurStory/> } />
                   <Route exact path='/contact' element={ <Contact/> } />
                   <Route path="*" element={<NotFound/>}/>
-                  <Route exact path='/signin' element={<SignIn/>} />
+                  <Route exact path='/signin' element={<SignUp/>} />
                   <Route exact path='/login' element={<LogIn/>}/>
                 </Routes>
               <Footer></Footer>

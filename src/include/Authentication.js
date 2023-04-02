@@ -1,20 +1,14 @@
 import React, { createContext, useContext, useEffect, useState } from 'react'
 import { auth } from '../include/Firebase'
 import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
   sendPasswordResetEmail,
   onAuthStateChanged,
-  signInWithPopup,
-  GoogleAuthProvider,
   signOut,
   confirmPasswordReset,
 } from 'firebase/auth'
 
 const AuthContext = createContext({
   currentUser: null,
-  login: () => Promise,
-  register: () => Promise,
   logout: () => Promise,
   forgotPassword: () => Promise,
   resetPassword: () => Promise,
@@ -38,14 +32,6 @@ export default function AuthContextProvider({ children }) {
     console.log('The user is', currentUser)
   }, [currentUser])
 
-  function login(email, password) {
-    return signInWithEmailAndPassword(auth, email, password)
-  }
-
-  function register(email, password) {
-    return createUserWithEmailAndPassword(auth, email, password)
-  }
-
   function forgotPassword(email) {
     return sendPasswordResetEmail(auth, email, {
       url: `http://localhost:3000/login`,
@@ -62,8 +48,6 @@ export default function AuthContextProvider({ children }) {
 
   const value = {
     currentUser,
-    login,
-    register,
     logout,
     forgotPassword,
     resetPassword,
