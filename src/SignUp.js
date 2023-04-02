@@ -10,12 +10,16 @@ import {
     useToast,
   } from '@chakra-ui/react'
   import React, { useEffect, useRef, useState } from 'react'
+  import { FaGoogle } from 'react-icons/fa'
+  import DividerWithText from './components/DividerWithText'
   import { useNavigate } from 'react-router-dom'
   import { Card } from './components/Card'
   import { Layout } from './components/Layout'
   // import { useAuth } from './include/Authentication'
   import {
     createUserWithEmailAndPassword,
+    GoogleAuthProvider,
+    signInWithPopup
   } from 'firebase/auth'
   import { auth } from './include/Firebase'
   
@@ -38,6 +42,13 @@ import {
     function register(email, password) {
       return new Promise((resolve) => {
         resolve(createUserWithEmailAndPassword(auth, email, password));
+      })
+    }
+
+    function signInWithGoogle() {
+      return new Promise((resolve) => {
+        const provider = new GoogleAuthProvider()
+        resolve(signInWithPopup(auth, provider));
       })
     }
   
@@ -111,6 +122,22 @@ import {
           <Center my={4}>
             <Button variant='link' onClick={() => history('/login')}>
               Login
+            </Button>
+          </Center>
+          <DividerWithText my={6}>OR</DividerWithText>
+          <Center>
+            <Button
+              variant='outline'
+              isfullwidth="true"
+              colorScheme='red'
+              leftIcon={<FaGoogle />}
+              onClick={() =>
+                signInWithGoogle()
+                  .then(user => console.log(user))
+                  .catch(e => console.log(e.message))
+              }
+            >
+              Sign in with Google
             </Button>
           </Center>
         </Card>

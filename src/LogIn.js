@@ -1,5 +1,6 @@
 import {
     Button,
+    Center,
     chakra,
     FormControl,
     FormLabel,
@@ -11,12 +12,16 @@ import {
   } from '@chakra-ui/react'
   import React, { useState } from 'react'
   import { Link, useNavigate } from 'react-router-dom'
+  import { FaGoogle } from 'react-icons/fa'
+  import DividerWithText from '../src/components/DividerWithText'
   import { Card } from '../src/components/Card'
   import { Layout } from '../src/components/Layout'
   import useMounted from '../src/include/useMounted'
   import { auth } from '../src/include/Firebase'
   import {
     signInWithEmailAndPassword,
+    GoogleAuthProvider,
+    signInWithPopup
   } from 'firebase/auth'
   
   export default function LogInpage() {
@@ -50,6 +55,13 @@ import {
     function login(email, password) {
       return new Promise((resolve) => {
         resolve(signInWithEmailAndPassword(auth, email, password));
+      })
+    }
+
+    function signInWithGoogle() {
+      return new Promise((resolve) => {
+        const provider = new GoogleAuthProvider()
+        resolve(signInWithPopup(auth, provider));
       })
     }
   
@@ -138,6 +150,25 @@ import {
               Register
             </Button>
           </HStack>
+          <DividerWithText my={6}>OR</DividerWithText>
+          <Center>
+            <Button
+                variant='outline'
+                isfullwidth="true"
+                colorScheme='red'
+                leftIcon={<FaGoogle />}
+                onClick={() =>
+                  signInWithGoogle()
+                    .then(user => {
+                      handleRedirectToOrBack()
+                      console.log(user)
+                    })
+                    .catch(e => console.log(e.message))
+                }
+              >
+                Sign in with Google
+            </Button>
+          </Center>
         </Card>
       </Layout>
     )
