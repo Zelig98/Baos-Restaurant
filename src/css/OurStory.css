@@ -1,0 +1,57 @@
+
+.text-about-us {
+    font-size: 100px;
+}
+
+.about-description-text {
+    line-height: 1.8em;
+    font-weight: 300;
+    font-size: 18px;
+}
+
+.about01 {
+    background-color: black;
+}
+
+.about02 {
+    background-color: black;
+}
+.about02-img{
+    padding-top: 105px;
+}
+
+
+.about04 {
+    background-color: black;}
+
+
+.about03 {
+    background-color: black;;
+}
+.about03-img {
+    background-size: cover;
+    width: 100%;
+    padding-top: 105px;
+}
+
+.about-leader-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden
+}
+
+.about-leader-img img {
+    width: 100%;
+    height: 100%
+}
+
+.about-location {
+    width: 100%;
+    padding: 0.8rem !important;
+    color:orange;
+}
+
+.haha{
+    filter: invert(100%) sepia(3%) saturate(0%) hue-rotate(94deg) brightness(105%) contrast(101%);
+}

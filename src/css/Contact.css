@@ -1,0 +1,48 @@
+.bg-location {
+    background-color: #aa4a32 !important;
+}
+
+.map-location{
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.location{
+    font-size: 1.2rem;
+    font-weight: 200;
+    margin-bottom: 0;
+    padding-left: 5px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+}
+
+.contact-image{
+    display: block;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.leader{
+    height: 450px;
+    background: black;
+    width: 15px;
+}
+
+.name {
+    color: orange;
+}
+
+.contact-form{
+    background-color: rgba(206, 194, 176, 1);
+}
+
+.textContactForm{
+    font-weight: 500 !important;
+}
+
+.tilteContactForm{
+    font-weight: 700 !important;
+}

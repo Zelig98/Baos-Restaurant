@@ -13,7 +13,7 @@ const Navbar = () => {
     return (
         <div className='header mb-5'>
             <div className='pre-navbar position-relative'>
-                <h1 className='logo-navbar font-milonga text-center'>BAO</h1>
+                <h1 className='logo-navbar font-milonga text-center'>BAOS</h1>
                 <div className='my-2'>
                     <Row className='align-items-center'>
                         <Col className='pe-0'>
