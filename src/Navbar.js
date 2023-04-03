@@ -3,10 +3,13 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Nav from 'react-bootstrap/Nav';
 import { Link } from 'react-router-dom';
-import './css/Navbar.css';
-import Cart from './Cart';
+import './css/Navbar.css'
+import { useAuth } from './include/Authentication';
+import Navlink from './components/Navlink';
+
 
 const Navbar = () => {
+    const {currentUser, logout}= useAuth();
     return (
         <div className='header mb-5'>
             <div className='pre-navbar position-relative'>
@@ -26,7 +29,11 @@ const Navbar = () => {
                 </div>
                 <div className='menu-icon position-absolute'>
                     <div className='d-flex'>
-                        <i className="fa-solid fa-circle-user fs-1 mx-4"></i>
+                        {!currentUser && <Link to={'/login'}><i className="fa-solid fa-circle-user fs-1 mx-4"></i></Link>}
+                        {currentUser && <Navlink to={'/logout'} name='Logout' onClick={ async e => {
+                            e.preventDefault();
+                            logout();
+                        }}/>}
                         <Cart></Cart>
                     </div>
                 </div>
