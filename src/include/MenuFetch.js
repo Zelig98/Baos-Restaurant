@@ -44,5 +44,17 @@ async function getFoodsData (foodType="all", start=1) {
     return data;
 }
 
+async function getSingleFoodData(foodID=1) {
+    let data;
+    let q;
+    const reference = collection(database, "foods");
+    q = query(reference, where("id", "==", foodID));
+    const snapshot = await getDocs(q);
+    data = snapshot.docs[0].data();
+
+    return data;
+}
+
 export { getFoodsData };
 export { getNumberFoods };
+export { getSingleFoodData };

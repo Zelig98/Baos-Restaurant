@@ -3,7 +3,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Nav from 'react-bootstrap/Nav';
 import { Link } from 'react-router-dom';
-import './css/Navbar.css'
+import './css/Navbar.css';
+import Cart from './Cart';
 
 const Navbar = () => {
     return (
@@ -26,7 +27,7 @@ const Navbar = () => {
                 <div className='menu-icon position-absolute'>
                     <div className='d-flex'>
                         <i className="fa-solid fa-circle-user fs-1 mx-4"></i>
-                        <i className="fa-solid fa-cart-shopping ms-2 fs-1 me-md-5"></i>
+                        <Cart></Cart>
                     </div>
                 </div>
             </div>
