@@ -3,7 +3,7 @@ import { addDoc, collection, getFirestore } from "firebase/firestore";
 import '../css/Booking.css'
 import React, { useState } from "react";
 
-const Form = () => {
+const BookingForm = () => {
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
     const [date, setDate] = useState('');
@@ -47,17 +47,22 @@ const Form = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        addDoc(colRef,{
+        if(name=='' || phone=='' || count==0 || date=='' || time==''){
+          alert('Booking fail! Lack of information! ')
+        }else{
+          addDoc(colRef,{
             name: name,
             phone: phone,
             people_num: count,
             date: date,
             time: time
-        })
+          })
 
-        .then(() => {
+          .then(() => {
             alert('Your message has been sent!');
-        })
+          })
+        }
+        
 
         setName('');
         setPhone('');
@@ -102,4 +107,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default BookingForm;
