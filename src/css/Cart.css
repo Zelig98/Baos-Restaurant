@@ -1,0 +1,29 @@
+.custom-cart {
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 700px;
+}
+
+.cart-toggle-btn {
+    width: 75px;
+    background-color: transparent !important;
+    border: none !important;
+    color: black;
+}
+
+.cart-toggle-btn:hover {
+    background-color: transparent;
+    color: #aa4a32;
+}
+
+.custom-cart .total-pay{
+    right: 20px;
+    bottom: 10px;
+    width: 97%;
+}
+
+.custom-cart .offcanvas-body{
+    max-height: 86%;
+    padding-top: 0;
+}
