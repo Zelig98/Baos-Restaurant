@@ -1,17 +1,13 @@
 import './css/Cart.css'
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import { CartContext } from './include/CartContext';
 
 const Cart = () => {
-    const cart = useContext(CartContext)
 
     const [show, setShow] = useState(false);
 
     const handleShow = () => setShow(true);
     const handleClose = () => setShow(false);
-
-    const itemCount = cart.items.reduce((sum, product) => sum + product.quantity, 0);
 
     return (
         <>
