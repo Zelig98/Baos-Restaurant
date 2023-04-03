@@ -1,15 +1,50 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Table from 'react-bootstrap/Table';
+import StaffList from "./include/StaffList";
+import { getStaffs } from "./include/StaffFetch";
 
 function ManageStaff() {
     const [show, setShow] = useState(false);
+    const [emps, setStaffs] = useState(null);
+    const [isPending, setPending] = useState(true);
+    const [validated, setValidated] = useState(false);
+    const formRef = useRef(null);
 
-    const handleClose = () => setShow(false);
+    const handleClose = () => {
+        setShow(false);
+    } 
     const handleShow = () => setShow(true);
+    
+  
+    const handleReset = () => {
+      formRef.current.reset();
+      setValidated(false);
+    };
+  
+    function handleSubmit(){
+        handleClose();
+
+        handleReset();
+    }
+
+    function callBack(){
+        setPending(false);
+    }
+
+    function getStaffsList(emp, callback){
+        setStaffs(emp);
+        callback();
+    }
+
+    useEffect(() => {
+        getStaffs().then((result =>{
+            getStaffsList(result, callBack);;
+        }));       
+    });
 
     return (
         <div>
@@ -25,14 +60,14 @@ function ManageStaff() {
                             <Modal.Title>Staff Information</Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
-                            <Form>
+                            <Form ref={formRef}  validated={validated}>
                                 <FloatingLabel controlId="floatingInput" label="First Name" className="mb-3">
-                                    <Form.Control type="text" placeholder="First Name" />
+                                    <Form.Control type="text" name="first_name" placeholder="First Name" />
                                 </FloatingLabel>
                                 <FloatingLabel controlId="floatingInput" label="Last Name" className="mb-3">
-                                    <Form.Control type="text" placeholder="Last Name" />
+                                    <Form.Control type="text" name="last_name" placeholder="Last Name" />
                                 </FloatingLabel>
-                                <Form.Group className="mb-3 d-flex" controlId="staffRole">
+                                <Form.Group className="mb-3 d-flex" controlId="staffRole" name="role">
                                     <Form.Check type="checkbox" label="Manager" className="col-4" />
                                     <Form.Check type="checkbox" label="Chef" className="col-4" />
                                     <Form.Check type="checkbox" label="Waiter" className="col-4" />
@@ -46,10 +81,13 @@ function ManageStaff() {
                             </Form>
                         </Modal.Body>
                         <Modal.Footer>
+                            <Button variant="secondary" onClick={handleReset}>
+                                Reset
+                            </Button>
                             <Button variant="secondary" onClick={handleClose}>
                                 Close
                             </Button>
-                            <Button variant="primary" onClick={handleClose}>
+                            <Button variant="primary" onClick={handleSubmit}>
                                 Save Changes
                             </Button>
                         </Modal.Footer>
@@ -64,27 +102,22 @@ function ManageStaff() {
                             <th>First Name</th>
                             <th>Last Name</th>
                             <th>Username</th>
+                            <th>Role</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td colSpan={2}>Larry the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
-                    </tbody>
+                    {/* List staff area */}
+                    {isPending && 
+                        <div className="text-center">
+                            <div className="spinner-border m-5" role="status" style={{width: "5rem", height: "5rem"}}>
+                                <span className="visually-hidden">Loading...</span>
+                            </div>
+                        </div>
+                    }
+                    {emps && <StaffList emps={emps}/>}
+                       
+                    {/* End of List staff area */}
+
+
                 </Table>
             </div>
         </div>
