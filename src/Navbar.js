@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import './css/Navbar.css'
 import { useAuth } from './include/Authentication';
 import Navlink from './components/Navlink';
-
+import Cart from './Cart';
 
 const Navbar = () => {
     const {currentUser, logout}= useAuth();

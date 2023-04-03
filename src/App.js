@@ -14,7 +14,7 @@ import LogIn from './LogIn';
 import ForgotPassword from './ForgetPassword';
 import ResetPassword from './ResetPassword';
 import { ChakraProvider } from '@chakra-ui/react';
-
+import { ReactSession } from 'react-client-session';
 
 function App() {
   ReactSession.setStoreType("sessionStorage");
