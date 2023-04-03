@@ -1,0 +1,31 @@
+.manage-home {
+    text-align: center;
+}
+
+.manage-home-title {
+    margin: 0 10px;
+}
+
+.manage-home-title span {
+    font-size: 35px;
+    font-weight: bolder;
+}
+
+.staff-nav {
+    text-align: center;
+}
+
+.staff-nav-title {
+    background-color: #454545;
+    color: azure;
+    width: 100%;
+    padding: 10px 0;
+}
+
+.staff-nav-add {
+    text-align: right;
+}
+
+.staff-nav-add button {
+    margin-right: 1%;
+}
