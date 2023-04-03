@@ -91,8 +91,9 @@ function ManageStaff() {
           addStaff(first_name, last_name, username, phone, role)
           .then(() => {
             alert('Staff is added!');
-            handleClose();
             handleReset();
+            handleClose();
+            
           })
         }
         
@@ -107,11 +108,11 @@ function ManageStaff() {
         callback();
     }
 
-    useEffect(() => {
-        getStaffs().then((result =>{
-            getStaffsList(result, callBack);;
-        }));       
-    });
+    // useEffect(() => {
+    //     getStaffs().then((result =>{
+    //         getStaffsList(result, callBack);;
+    //     }));       
+    // });
 
     return (
         <div>
@@ -173,19 +174,20 @@ function ManageStaff() {
                         </tr>
                     </thead>
                     {/* List staff area */}
-                    {isPending && 
-                        <div className="text-center">
-                            <div className="spinner-border m-5" role="status" style={{width: "5rem", height: "5rem"}}>
-                                <span className="visually-hidden">Loading...</span>
-                            </div>
-                        </div>
-                    }
+                    
                     {emps && <StaffList emps={emps}/>}
                        
                     {/* End of List staff area */}
 
 
                 </Table>
+                {isPending && 
+                        <div className="text-center">
+                            <div className="spinner-border m-5" role="status" style={{width: "5rem", height: "5rem"}}>
+                                <span className="visually-hidden">Loading...</span>
+                            </div>
+                        </div>
+                 }
             </div>
         </div>
     )
