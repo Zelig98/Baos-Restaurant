@@ -1,6 +1,38 @@
 import { Button, Col, Row } from "react-bootstrap";
+import { getSingleFoodData } from "./MenuFetch";
+import { setFoodCartBody, foodCartBody, setTotalPay, calculateTotalPay } from "../Cart";
+import { ReactSession } from 'react-client-session';
+import { useEffect } from "react";
+
+function addFoodItemToCart(foodID) {
+    getSingleFoodData(foodID).then((result => {
+        result = {...result, "quantity": 1}
+        
+        let isExistedInCart = false;
+        
+        // check if existed, increase the amount food item
+        for(let i = 0; i < foodCartBody.length; i++) {
+            if(foodCartBody[i]["id"] == result["id"]) {
+                isExistedInCart = true;
+                foodCartBody[i]["quantity"]++;
+                setFoodCartBody(foodCartBody);
+                break;
+            }
+        }
+        
+        // if not existed, add new item to cart
+        if(!isExistedInCart) {
+            setFoodCartBody([...foodCartBody, result]);
+        }
+    }));
+}
 
 const FoodList = ({foods}) => {
+    useEffect(() => {
+        ReactSession.set('cart', foodCartBody);
+        setTotalPay(calculateTotalPay());
+    }, [foodCartBody]);
+
     return ( 
         <Row className="foods-list mt-4">
             {foods.map((food) => (
@@ -11,7 +43,7 @@ const FoodList = ({foods}) => {
                     <div className='divider-thin bg-dark'></div>
                     <div className="d-flex justify-content-around align-items-center mt-3">
                         <h3 className='text-center price fw-bold m-0'>{food.price}$</h3>
-                        <Button variant="success" className="fw-bold fs-5">Add</Button>{' '}
+                        <Button variant="success" className="fw-bold fs-5" onClick={() => { addFoodItemToCart(parseInt(food.id));}}>Add</Button>{' '}
                     </div>
                 </Col>
             ))}

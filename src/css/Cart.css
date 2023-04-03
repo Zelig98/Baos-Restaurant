@@ -16,3 +16,14 @@
     background-color: transparent;
     color: #aa4a32;
 }
+
+.custom-cart .total-pay{
+    right: 20px;
+    bottom: 10px;
+    width: 97%;
+}
+
+.custom-cart .offcanvas-body{
+    max-height: 86%;
+    padding-top: 0;
+}

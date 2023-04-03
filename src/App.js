@@ -9,8 +9,17 @@ import Contact from './Contact';
 import Footer from './Footer';
 import NotFound from './NotFound';
 import { BrowserRouter as Router, Route, Routes /* switch replaced by routes in ver 6 */ } from 'react-router-dom';
+import { ReactSession } from 'react-client-session';
 
 function App() {
+  ReactSession.setStoreType("sessionStorage");
+  
+  if(!ReactSession.get("cart")){
+    ReactSession.set("cart", []);
+  }
+  
+  // ReactSession.set("cart", []);
+
   return (
       <Router>
         <Container>
