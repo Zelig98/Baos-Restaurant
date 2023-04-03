@@ -7,6 +7,7 @@ import './css/Navbar.css'
 import { useAuth } from './include/Authentication';
 import Navlink from './components/Navlink';
 
+
 const Navbar = () => {
     const {currentUser, logout}= useAuth();
     return (
@@ -29,11 +30,11 @@ const Navbar = () => {
                 <div className='menu-icon position-absolute'>
                     <div className='d-flex'>
                         {!currentUser && <Link to={'/login'}><i className="fa-solid fa-circle-user fs-1 mx-4"></i></Link>}
-                        <i className="fa-solid fa-cart-shopping ms-2 fs-1 me-md-5"></i>
                         {currentUser && <Navlink to={'/logout'} name='Logout' onClick={ async e => {
                             e.preventDefault();
                             logout();
                         }}/>}
+                        <Cart></Cart>
                     </div>
                 </div>
             </div>

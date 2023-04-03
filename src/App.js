@@ -15,7 +15,16 @@ import ForgotPassword from './ForgetPassword';
 import ResetPassword from './ResetPassword';
 import { ChakraProvider } from '@chakra-ui/react';
 
+
 function App() {
+  ReactSession.setStoreType("sessionStorage");
+  
+  if(!ReactSession.get("cart")){
+    ReactSession.set("cart", []);
+  }
+  
+  // ReactSession.set("cart", []);
+
   return (
     <ChakraProvider>
       <Router>
