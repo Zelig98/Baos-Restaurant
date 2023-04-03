@@ -9,7 +9,8 @@ const StaffList = ({emps}) => {
                     <td>{emp.last_name}</td>
                     <td>{emp.first_name}</td>
                     <td>{emp.username}</td>
-                    <td>{emp.Role}</td>
+                    <td>{emp.phone}</td>
+                    <td>{emp.role}</td>
                 </tr>
             ))}
         </tbody>
