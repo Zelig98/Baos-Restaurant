@@ -1,0 +1,10 @@
+.cart-toggle-btn {
+    width: 75px;
+    background-color: transparent;
+    border: none;
+    color: black;
+}
+
+.cart-toggle-btn:hover {
+    background-color: transparent;
+}
