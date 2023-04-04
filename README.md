@@ -1,10 +1,9 @@
 # Welcome to Baos Restaurant project
 ## Advance Software Engineering Project
 
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-**Contributor:**
+**Contributors:**
 - Vũ Bình Gia Uy (2059048)
 - La Triệu Huy (2059016)
 - Ngô Trung Hải (2059012)
