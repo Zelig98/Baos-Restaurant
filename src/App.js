@@ -8,6 +8,7 @@ import OurStory from './OurStory';
 import Contact from './Contact';
 import Footer from './Footer';
 import NotFound from './NotFound';
+import Payment from './Payement';
 import { BrowserRouter as Router, Route, Routes /* switch replaced by routes in ver 6 */ } from 'react-router-dom';
 import SignUp from './SignUp';
 import LogIn from './LogIn';
@@ -36,6 +37,7 @@ function App() {
                   <Route exact path='/menu' element={ <Menu/> } />
                   <Route exact path='/our_story' element={ <OurStory/> } />
                   <Route exact path='/contact' element={ <Contact/> } />
+                  <Route exact path='/payment' element={ <Payment/> } />
                   <Route path="*" element={<NotFound/>}/>
                   <Route exact path='/signin' element={<SignUp/>} />
                   <Route exact path='/login' element={<LogIn/>}/>
