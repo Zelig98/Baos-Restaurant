@@ -38,6 +38,8 @@ const Cart = () => {
         console.log(foodCartSession);
         addToPayment();
         handleClose();
+        ReactSession.set('cart', [])
+        setFoodCartBody([]);
 
         alert("Foods is added to Payment");
     };
