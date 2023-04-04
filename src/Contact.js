@@ -5,8 +5,8 @@ import Col from 'react-bootstrap/Col';
 
 const Contact = () => {
     return ( 
-        <div class="contact my-3">
-            <div class="container m-0">
+        <div className="contact my-3">
+            <div className="container m-0">
                 <Row>
                     <Col lg="6" className="ps-5 pe-5 align-self-center">
                         <div className='mt-0 p-0'>
@@ -23,17 +23,17 @@ const Contact = () => {
                             style={{color: "orange"}}>BAOS</span></h3>
                         <hr/>
                         <form>
-                        <div class="form-group p-1">
+                        <div className="form-group p-1">
                             <label className='textContactForm'>Your name</label>
-                            <input class="form-control"/>
+                            <input className="form-control"/>
                         </div>
-                        <div class="form-group p-1">
+                        <div className="form-group p-1">
                             <label className='textContactForm'>Your Phone</label>
-                            <input class="form-control"/>
+                            <input className="form-control"/>
                         </div>
-                        <div class="form-group p-1">
+                        <div className="form-group p-1">
                             <label className='textContactForm'>What can we help you with ?</label>
-                            <textarea class="form-control form-message" placeholder="Enter here..."></textarea>
+                            <textarea className="form-control form-message" placeholder="Enter here..."></textarea>
                         </div>
                         <button className="btn btn-warning p-2 mt-3 w-100" font="100" type="submit" name="login"
                             value="true">Contact us</button>
