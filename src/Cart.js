@@ -37,10 +37,8 @@ const Cart = () => {
     const handleSubmit = () => {
         console.log(foodCartSession);
         addToPayment();
-        handleClose();
         ReactSession.set('cart', [])
         setFoodCartBody([]);
-
         alert("Foods is added to Payment");
     };
 
@@ -73,7 +71,7 @@ const Cart = () => {
                             <hr />
                             <div className='d-flex justify-content-between align-items-center'>
                                 <Button className='ms-3 fw-bold' variant='success' onClick={handleSubmit}>Check Out</Button>
-                                <Link to="/payment"><Button className='ms-3 fw-bold' variant='success'>View Payment</Button>{' '}</Link>
+                                <a href="/payment"><Button className='ms-3 fw-bold' variant='success' onClick={handleClose}>View Payment</Button>{' '}</a>
                                 <h4 className="m-0">Total: $<span>{totalPay}</span></h4>
                             </div>
                         </div>
