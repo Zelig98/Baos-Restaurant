@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import { ReactSession } from 'react-client-session';
 import FoodCartBody from './include/FoodCartBody';
+import Button from 'react-bootstrap/Button';
+
 
 let setFoodCartBody
 let foodCartBody;
@@ -59,6 +61,9 @@ const Cart = () => {
                     <div className='total-pay-wraper'>
                         <div className="total-pay position-absolute">
                             <hr />
+                            <Button variant="success" className="fw-bold fs-5" onClick={} >
+                                CheckOut
+                            </Button>
                             <h4 className="m-auto ms-3 text-end">Total: $<span>{totalPay}</span></h4>
                         </div>
                     </div>
