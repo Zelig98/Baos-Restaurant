@@ -4,8 +4,9 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import { ReactSession } from 'react-client-session';
 import FoodCartBody from './include/FoodCartBody';
 import Button from 'react-bootstrap/Button';
+import { addToPayment } from './include/PaymentFetch';
 
-let setFoodCartBody
+let setFoodCartBody;
 let foodCartBody;
 let setTotalPay;
 
@@ -32,6 +33,12 @@ const Cart = () => {
     const [show, setShow] = useState(false);
     const handleShow = () => setShow(true);
     const handleClose = () => setShow(false);
+    const handleSubmit = () => {
+        console.log(foodCartSession);
+        addToPayment();
+        handleClose();
+        alert("Foods is added to Payment");
+    };
 
     return (
         <>
@@ -61,7 +68,8 @@ const Cart = () => {
                         <div className="total-pay position-absolute">
                             <hr />
                             <div className='d-flex justify-content-between align-items-center'>
-                                <Button className='ms-3 fw-bold' variant='success'>Check Out</Button>{' '}
+                                <Button className='ms-3 fw-bold' variant='success' onClick={handleSubmit}>Check Out</Button>
+                                <Button className='ms-3 fw-bold' variant='success'>View Payment</Button>{' '}
                                 <h4 className="m-0">Total: $<span>{totalPay}</span></h4>
                             </div>
                         </div>
