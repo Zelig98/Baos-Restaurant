@@ -4,7 +4,7 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import './css/Booking.css'
 import React, { useState } from "react";
-import Form from './include/BookingForm.js'
+import BookingForm from './include/BookingForm.js'
 const Booking = () => {
   return ( 
     <div className="booking my-3">
@@ -21,7 +21,7 @@ const Booking = () => {
             </div>      
           </Col>
           <Col lg="6" className="ps-5 pe-5">
-            <Form />
+            <BookingForm />
           </Col>
         </Row>
       </div>
