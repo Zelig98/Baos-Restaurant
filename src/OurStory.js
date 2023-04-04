@@ -5,8 +5,8 @@ import { Button } from 'react-bootstrap';
 
 const OurStory = () => {
     return ( 
-        <div classNameName="our-story">
-            <div classNameName="text-center abbout-us">
+        <div className="our-story">
+            <div className="text-center abbout-us">
                 <div>
                     <h1 className="text-center text-about-us">About us</h1>
                     <p className="text-center fs-3">One of the best restaurant in VietNam</p> 
