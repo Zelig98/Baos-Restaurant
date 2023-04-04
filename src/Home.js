@@ -1,7 +1,8 @@
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
-import './css/Home.css'
+import './css/Home.css';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
     return ( 
@@ -47,9 +48,9 @@ const Home = () => {
                     <div className='customer-review p-4'>
                         <h1 className='mb-3 text-center'><span className='fw-900'>Welcome</span> to our Restaurant</h1>
                         <h3 className='fw-bold mb-3'>Start</h3>
-                        <Button variant="dark" className='fs-2 w-100 fw-bold py-2 mb-3'>BOOKING</Button>
+                        <Link to="/booking"><Button variant="dark" className='fs-2 w-100 fw-bold py-2 mb-3'>BOOKING</Button></Link>
                         <h3 className='fw-bold mb-3'>Or</h3>
-                        <Button variant="outline-dark" className='fs-4 w-100 fw-bold py-2 mb-4'>PLACE AN ORDER</Button>
+                        <Link to="/menu"><Button variant="outline-dark" className='fs-4 w-100 fw-bold py-2 mb-4'>PLACE AN ORDER</Button></Link>
                         <h5 className='text-center'>Customer's Review</h5>
                         <div className='divider-thin bg-dark mb-3'></div>
                         <Row>

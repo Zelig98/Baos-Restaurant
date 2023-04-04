@@ -4,12 +4,16 @@ import Col from 'react-bootstrap/Col';
 import Nav from 'react-bootstrap/Nav';
 import { Link } from 'react-router-dom';
 import './css/Navbar.css'
+import { useAuth } from './include/Authentication';
+import Navlink from './components/Navlink';
+import Cart from './Cart';
 
 const Navbar = () => {
+    const {currentUser, logout}= useAuth();
     return (
         <div className='header mb-5'>
             <div className='pre-navbar position-relative'>
-                <h1 className='logo-navbar font-milonga text-center'>BAO</h1>
+                <h1 className='logo-navbar font-milonga text-center'>BAOS</h1>
                 <div className='my-2'>
                     <Row className='align-items-center'>
                         <Col className='pe-0'>
@@ -25,8 +29,12 @@ const Navbar = () => {
                 </div>
                 <div className='menu-icon position-absolute'>
                     <div className='d-flex'>
-                        <i className="fa-solid fa-circle-user fs-1 mx-4"></i>
-                        <i className="fa-solid fa-cart-shopping ms-2 fs-1 me-md-5"></i>
+                        {!currentUser && <Link to={'/login'}><i className="fa-solid fa-circle-user fs-1 mx-4"></i></Link>}
+                        {currentUser && <Navlink to={'/logout'} name='Logout' onClick={ async e => {
+                            e.preventDefault();
+                            logout();
+                        }}/>}
+                        <Cart></Cart>
                     </div>
                 </div>
             </div>
