@@ -35,7 +35,7 @@ const Contact = () => {
                             <label className='textContactForm'>What can we help you with ?</label>
                             <textarea class="form-control form-message" placeholder="Enter here..."></textarea>
                         </div>
-                        <button className="btn btn-outline-warning p-2 mt-3 w-100" font="100" type="submit" name="login"
+                        <button className="btn btn-warning p-2 mt-3 w-100" font="100" type="submit" name="login"
                             value="true">Contact us</button>
                         </form>
                     </Col>
